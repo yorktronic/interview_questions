@@ -20,11 +20,11 @@ What's your query, yo? You are only permitted to use SQL Queries to solve this p
 3. The marketing department just asked: We'd like to keep track of the largest (most $$$) order placed every day. Also, there's another table for each month that contains all the orders for a given month. We would like to see an ordered list of the top performing days for the month of june, ordered by revenue.
 
 ## Measuring Success a of New Product ##
-When a new product feature is released a variety of new events are tracked to support the 
-measurement and analysis of that new feature. This role will define the data collection and 
+
+**Question:** When a new product feature is released a variety of new events are tracked to support the measurement and analysis of that new feature. This role will define the data collection and 
 testing based on the product spec and work with the engineering team to implement the event tracking. What steps might you take to ensure proper collection and data quality?
 
-I decided that I could better explain how I would tackle this problem if I came up with my best guess at a real-world [company x] scenario, but I tried to keep things general enough so that they could get a handle on my problem solving / critical thinking skills.
+*I decided that I could better explain how I would tackle this problem if I came up with my best guess at a real-world [company x] scenario, but I tried to keep things general enough so that they could get a handle on my problem solving / critical thinking skills.*
 
 ###  The New Feature ###
 [Company X] develops and rolls out a new feature that enables a peer-to-peer points system where members of a project team can distribute points to one another to recognize exceptional work, teamwork, etc.
