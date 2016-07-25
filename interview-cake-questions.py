@@ -116,8 +116,8 @@ def get_products_of_all_ints_except_at_index_cake(int_list):
 #######################################################################################################################
 #
 # Highest Product (I'm finally faster than Interview Cake!)
-# My solution: 2.96 microseconds if there are no negative numbers, 3.24 microseconds otherwise
-# Interview Cake's solution: 5.71 microseconds if there are no negative numbers, 6.05 microseconds otherwise
+# My solution: 3.07 microseconds if there are no negative numbers, 3.5 microseconds otherwise
+# Interview Cake's solution: 5.72 microseconds if there are no negative numbers, 7.37 microseconds otherwise
 #
 #######################################################################################################################
 
@@ -126,7 +126,7 @@ def highest_product(nums):
     nums_asc = sorted(nums)
     nums_desc = sorted(nums, reverse=True)
 
-    if nums_asc[0] * nums_asc[1] > nums_desc[0] * nums_desc[1]:
+    if nums_asc[0] * nums_asc[1] * nums_desc[0] > nums_desc[0] * nums_desc[1] * nums_desc[2]:
         return nums_asc[0] * nums_asc[1] * nums_desc[0]
     else:
         return nums_desc[0] * nums_desc[1] * nums_desc[2]
@@ -180,4 +180,3 @@ def highest_product_of_3(list_of_ints):
         lowest = min(lowest, current)
 
     return highest_product_of_three
-
