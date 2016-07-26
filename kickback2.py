@@ -1,3 +1,9 @@
+# NOTE: I didn't have time to import any external data sources. Here are some ideas of external sources that I'd use:
+# For each date I would be interested in doing NLP on twitter posts from a handful of sources, such as CoinDesk
+# Check other currency conversion rates, price of gold, etc.
+# Anyway I used linear regression with time indexes as the feature, which is obviously going to give horrible predictions
+# Also, I use graphlab create instead of scikit-learn, as that's what I've been working with recently
+
 import json, urllib
 import graphlab
 
