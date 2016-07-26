@@ -19,6 +19,25 @@ What's your query, yo? You are only permitted to use SQL Queries to solve this p
   * date (date)
 3. The marketing department just asked: We'd like to keep track of the largest (most $$$) order placed every day. Also, there's another table for each month that contains all the orders for a given month. We would like to see an ordered list of the top performing days for the month of june, ordered by revenue.
 
+# Analyzing Wikipedia text and BTC price predictor #
+
+## Wikipedia text analysis ##
+Write a Python program that takes the content of (http://en.wikipedia.org/wiki/Machine_learning) and counts the frequency of each word and outputs the 10 most frequent words ordered by decreasing frequency.
+
+BONUS POINTS:
+- exclude common words using (http://en.wikipedia.org/wiki/Most_common_words_in_English)
+
+my solution is in <a href="kickback.py">kickback.py</a>
+
+## BTC Price Predictor ##
+Write a python program that takes the historical values of USDBTC exchange rate from (http://www.quandl.com/api/v1/datasets/BCHAIN/MKPRU.json) and generates a prediction for the price of Bitcoins in USD on July 4th 2016.
+
+BONUS POINTS:
+- use only data up to March 31st 2016 to train your model
+- introduce 1 external data source (besides the price itself) to improve your model
+
+my solution is in <a href="kickback2.py">kickback2.py</a>
+
 # Measuring Success a of New Product #
 
 **Question:** When a new product feature is released a variety of new events are tracked to support the measurement and analysis of that new feature. This role will define the data collection and 
