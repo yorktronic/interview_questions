@@ -9,7 +9,21 @@ Write a Python program that takes the content of (http://en.wikipedia.org/wiki/M
 BONUS POINTS:
 - exclude common words using (http://en.wikipedia.org/wiki/Most_common_words_in_English)
 
-my solution is in <a href="kickback.py">kickback.py</a>
+my solution is in <a href="kickback.py">kickback.py</a>. There's a bug I need to fix, the algorithm is still logging spaces as words.
+
+Output:
+```python
+[(u'learning', 96),
+ (u'', 86),
+ (u'machine', 26),
+ (u'data', 26),
+ (u'algorithms', 20),
+ (u'Machine', 16),
+ (u'model', 14),
+ (u'training', 13),
+ (u'set', 12),
+ (u'In', 12)]
+```
 
 ## BTC Price Predictor ##
 Write a python program that takes the historical values of USDBTC exchange rate from (http://www.quandl.com/api/v1/datasets/BCHAIN/MKPRU.json) and generates a prediction for the price of Bitcoins in USD on July 4th 2016.
@@ -19,6 +33,11 @@ BONUS POINTS:
 - introduce 1 external data source (besides the price itself) to improve your model
 
 my solution is in <a href="kickback2.py">kickback2.py</a>
+
+Output: 
+```python
+the prediction for July 4, 2016 is 420.498926059
+```
 
 # <a href="https://www.interviewcake.com/" target="_blank">InterviewCake.com</a> Sample Interview Questions #
 Interview Cake is a website that has a bunch of sample coding interview questions, which I solve periodically.
