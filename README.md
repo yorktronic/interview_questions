@@ -86,6 +86,18 @@ Given a list_of_ints, find the highest_product you can get from three of the int
 
 The input list_of_ints will always have at least three integers.
 
+## Find a duplicate, Space Edition™ ##
+We have a list of integers, where:  
+
+1. The integers are in the range 1..n1..n
+2. The list has a length of n+1n+1  
+
+It follows that our list has *at least* one integer which appears *at least* twice. But it may have *several* duplicates, and each duplicate may appear *more than* twice.
+
+**Write a function which finds *any* integer that appears more than once in our list.**
+
+We're going to run this function on our new, super-hip Macbook Pro With Retina Display™. Thing is, the damn thing came with the RAM soldered right to the motherboard, so we can't upgrade our RAM. **So we need to optimize for space!**
+
 # Measuring Success a of New Product #
 
 **Question:** When a new product feature is released a variety of new events are tracked to support the measurement and analysis of that new feature. This role will define the data collection and 

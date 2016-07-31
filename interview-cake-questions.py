@@ -180,3 +180,13 @@ def highest_product_of_3(list_of_ints):
         lowest = min(lowest, current)
 
     return highest_product_of_three
+
+#######################################################################################################################
+#
+# Find a duplicate, Space Edition
+# My solution: TBD
+# Interview Cake's solution: TBD
+#
+#######################################################################################################################
+
+def findDupe(ints):
