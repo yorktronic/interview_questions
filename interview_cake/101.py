@@ -10,14 +10,18 @@
 from urlparse import urlparse
 
 VISITED = {}
+VISITED_NESTED = {}
 
 def store_url(url):
     # takes in a url, cleans domain and returns domain and path separately
+    # won't handle subdomains, and a number of other things that would break this shit
     u = urlparse(url)
     netloc = u.netloc
     if 'www.' in netloc:
         netloc = netloc.replace('www.', '', 1)
-    return netloc, u.path
+    if netloc not in VISITED:
+        VISITED[netloc] = []
+    VISITED[netloc].append(u.path)
 
 # Interview Cake's solution
 class Trie:
