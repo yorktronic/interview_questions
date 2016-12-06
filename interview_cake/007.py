@@ -1,5 +1,6 @@
 class TempTracker(object):
-    # temps: dictionary of
+    # temps: dictionary of temperatures and their counts
+    # max, min, mode, mean, sum: statistics based on temps
 
     def __init__(self, temps={}):
         self.temps = temps
