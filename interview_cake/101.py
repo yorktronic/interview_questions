@@ -51,4 +51,3 @@ class Trie:
             current_node["End Of Word"] = {}
 
         return is_new_word
-    
