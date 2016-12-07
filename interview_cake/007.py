@@ -50,4 +50,3 @@ class TempTracker(object):
                 continue
 
         return max[0]
-
