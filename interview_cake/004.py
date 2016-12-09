@@ -35,7 +35,7 @@ def fully_consolidated(consolidated):
     return True
 
 # Interview Cake's Solution
-def merge_ranges(meetings):
+def merge_ranges_ic(meetings):
     # sort by start times
     sorted_meetings = sorted(meetings)
 
