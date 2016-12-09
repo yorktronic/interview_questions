@@ -25,7 +25,7 @@ def fibonacci_faster(n):
 
     return sequence
 
-# Optimal
+# Optimal, from Stack Overflow
 def fibo(n):
     a, b = 0, 1
     for i in xrange(n):
@@ -38,3 +38,9 @@ def generate(n):
         seq.append(i)
 
     return seq
+
+SEQUENCE = []
+
+def add_it(x): SEQUENCE.append(x)
+
+map(add_it, fibo(10))
