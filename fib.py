@@ -11,20 +11,6 @@ def fibonacci(n):
 
     return sequence
 
-# My slowest
-def fibonacci_faster(n):
-    sequence = [0] * n
-
-    for idx, num in enumerate(sequence):
-        if idx == 0:
-            sequence[idx] = 0
-        elif idx == 1:
-            sequence[idx] = 1
-        else:
-            sequence[idx] += sequence[idx - 1] + sequence[idx - 2]
-
-    return sequence
-
 # Optimal
 def fibo(n):
     a, b = 0, 1
