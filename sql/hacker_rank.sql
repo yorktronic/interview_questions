@@ -211,3 +211,118 @@ from (
     select min(lat_n) a, max(lat_n) b, min(long_w) c, max(long_w) d
     from station
 ) z
+
+/*
+Weather Observation Station 20
+https://www.hackerrank.com/challenges/weather-observation-station-20/
+*/
+set @row_number = -1;
+
+select round(avg(z.lat_n), 4)
+from (
+select (@row_number:=@row_number + 1) as r, lat_n
+from station
+order by lat_n
+) z
+where z.r IN (FLOOR(@row_number / 2), CEIL(@row_number / 2));
+
+/*
+The Report
+https://www.hackerrank.com/challenges/the-report/
+*/
+select case when grade >= 8 then name else NULL end as name, grade, marks
+from (
+    select students.name, grades.grade, students.marks
+    from students
+    inner join grades
+    on students.marks between grades.min_mark
+    and grades.max_mark
+    order by grades.grade desc, students.name
+) a
+
+/*
+Top Competitors
+https://www.hackerrank.com/challenges/full-score/problem
+*/
+select hacker_id, name
+from (
+    select hacker_id, name, count(*) cnt
+    from (
+        select s.hacker_id, h.name, s.challenge_id, c.difficulty_level, s.score actual_score, d.score diff_score
+        from submissions s
+        inner join challenges c
+        on s.challenge_id = c.challenge_id
+        inner join difficulty d
+        on c.difficulty_level = d.difficulty_level
+        inner join hackers h
+        on s.hacker_id = h.hacker_id
+        where s.score = d.score
+    ) a
+    group by hacker_id, name
+    order by cnt desc, hacker_id
+) b
+where cnt > 1;
+
+/*or*/
+select h.hacker_id, h.name
+from submissions s
+inner join challenges c
+on s.challenge_id = c.challenge_id
+inner join difficulty d
+on c.difficulty_level = d.difficulty_level 
+inner join hackers h
+on s.hacker_id = h.hacker_id
+where s.score = d.score and c.difficulty_level = d.difficulty_level
+group by h.hacker_id, h.name
+having count(s.hacker_id) > 1
+order by count(s.hacker_id) desc, s.hacker_id asc
+
+/*
+Ollivander's Inventory
+https://www.hackerrank.com/challenges/harry-potter-and-wands/problem
+*/
+select w.id, wp.age, w.coins_needed, w.power
+from wands w
+inner join wands_property wp
+on w.code = wp.code
+where wp.is_evil = 0
+and w.coins_needed = (
+    select min(coins_needed) 
+    from wands w1 
+    inner join wands_property wp1 
+    on w1.code = wp1.code
+    where w1.power = w.power
+    and wp1.age = wp.age)
+order by w.power desc, wp.age desc
+
+/*
+Challenges
+https://www.hackerrank.com/challenges/challenges/
+*/
+select H.hacker_id, H.name, count(*) as total
+from Hackers H, Challenges C
+where H.hacker_id = C.hacker_id
+group by H.hacker_id, H.name
+having total = 
+    (select count(*) 
+     from challenges
+     group by hacker_id 
+     order by count(*) desc limit 1
+     )
+or total in
+    (select total
+     from (
+        select count(*) as total
+        from Hackers H, Challenges C
+        where H.hacker_id = C.hacker_id
+        group by H.hacker_id, H.name
+      ) counts
+     group by total
+     having count(*) = 1)
+order by total desc, H.hacker_id asc
+;
+
+/*
+Contest Leaderboard
+https://www.hackerrank.com/challenges/contest-leaderboard/
+*/
