@@ -326,3 +326,45 @@ order by total desc, H.hacker_id asc
 Contest Leaderboard
 https://www.hackerrank.com/challenges/contest-leaderboard/
 */
+select h.hacker_id, h.name, SUM(s.max_score) total_score
+from hackers h
+inner join (
+select hacker_id, challenge_id, max(score) max_score
+from submissions
+group by hacker_id, challenge_id
+) s
+on h.hacker_id = s.hacker_id
+group by h.hacker_id, h.name
+having sum(s.max_score) > 0
+order by total_score desc, hacker_id
+
+/*
+Interviews
+https://www.hackerrank.com/challenges/interviews/
+*/
+select con.contest_id, con.hacker_id, con.name,
+       sum(ss.ts) ts, sum(ss.tas) tas,
+       sum(vs.tv) tv, sum(vs.tuv) tuv
+from contests con
+inner join colleges col
+on con.contest_id = col.contest_id
+inner join challenges cha
+on col.college_id = cha.college_id
+left join (
+    select challenge_id, sum(total_views) tv, sum(total_unique_views) tuv
+    from view_stats
+    group by challenge_id
+) vs
+on cha.challenge_id = vs.challenge_id
+left join (
+    select challenge_id, sum(total_submissions) ts, sum(total_accepted_submissions) tas
+    from submission_stats
+    group by challenge_id
+) ss
+on cha.challenge_id = ss.challenge_id
+group by con.contest_id, con.hacker_id, con.name
+having sum(ss.ts) != 0 or
+       sum(ss.tas) != 0 or
+       sum(vs.tv) != 0 or
+       sum(vs.tuv) != 0
+order by contest_id;
