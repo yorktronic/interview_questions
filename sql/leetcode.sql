@@ -1,10 +1,17 @@
-/* 176 - Second Highest Salary 
+/* 176 - Second Highest Salary
 https://leetcode.com/problems/second-highest-salary/
 */
-select ifnull(
-    (select distinct salary 
-     from Employee
-     order by salary desc
-     limit 1, offset 1),
-    NULL
-    ) as SecondHighestSalary
+SELECT ifnull(
+                (SELECT DISTINCT salary
+                 FROM Employee
+                 ORDER BY salary DESC LIMIT 1, 1), NULL) AS SecondHighestSalary /* 177 - Nth Highest Salary
+https://leetcode.com/problems/nth-highest-salary/
+*/
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT BEGIN
+SET N=N-1; RETURN (# WRITE your MySQL query STATEMENT below.
+                   SELECT Salary
+                   FROM Employee
+                   GROUP BY Salary
+                   ORDER BY Salary DESC LIMIT 1
+                   OFFSET N); END
+
